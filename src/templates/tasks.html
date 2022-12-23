@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Менеджер задач</title>
+	<style>
+		body {
+			background-color: #87CEEB;
+			font-family: 'Montserrat', sans-serif;
+		}
+	</style>
+</head>
+<body>
+	<a href="{% url 'home' %}" style="text-decoration: none;">Главная</a><br></br>
+	<button><a href="{% url 'add_task' category.title %}" style="text-decoration: none;">Добавить задачу</a></button>
+	<h2>{{category.title}}</h2>
+	{% for task in tasks %}
+	<table>
+		<td><a href="{% url 'task_del' task.id %}" style="text-decoration: none;">✓</a></td>
+		<td><a href="{% url 'desc' task.id %}" style="text-decoration: none;">{{task.title}}</a></td>
+	</table>
+	{% endfor %}
+</body>
+</html>
